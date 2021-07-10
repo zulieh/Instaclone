@@ -104,7 +104,7 @@ dist
 .tern-port
 
 #env file
-config/config.env
+config/.env
 
 #prettier
 .prettierrc.js

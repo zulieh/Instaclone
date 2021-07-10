@@ -4,7 +4,7 @@ const morgan = require('morgan');
 
 const color = require('./src/util/color')
 
-dotenv.config({ path: './config/config.env' });
+dotenv.config({ path: './config/config.evn' });
 
 const app = express();
 
