@@ -4,7 +4,10 @@
   "description": "instagram clone",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "migrate": "npx sequelize-cli db:migrate",
+    "undo": "sequelize-cli db:migrate:undo",
+    "undo:all": "npx sequelize-cli db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.12",
+    "pg": "^8.6.0",
     "postgres": "^1.0.2",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0"
