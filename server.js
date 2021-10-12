@@ -2,7 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 
-const color = require('./src/util/color')
+const color = require('./src/util/color');
+const user = require('./src/routes/user');
 
 dotenv.config({ path: './config/config.evn' });
 
@@ -14,6 +15,7 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+app.use('/api/v1/signup', user)
 
 app.use('/', (req, res) => {
   res.send('Hey Instaclone!');
