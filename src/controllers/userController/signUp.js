@@ -1,10 +1,12 @@
 const jwt = require('jsonwebtoken')
-const User = require('../../model/user')
+const { User } = require('../../model')
+
+
 exports.signUp = async (req, res) => {
 
-const { userName, firstName, lastName, password,  email, mobile } = req.body
+const { userName, firstName, lastName, password,  email, mobile } = req.body;
  try {
-    const User = await User.create({
+    const user = await User.create({
 
         userName, 
         firstName,
@@ -12,18 +14,20 @@ const { userName, firstName, lastName, password,  email, mobile } = req.body
         password, 
         email,
         mobile,
-    }) 
-    const token = jwt.sign({User_id}, process.evn.JWT_SECRET, { 
+    });
+    console.log(user)
+    const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, { 
         expiresIn: process.env.JWT_EXPIRES
     });
     return res.status(201).json({
         status: 'success',
         token,
         data: {
-            user: User
+            User: user
         }
     });    
 } catch (error) {
+    console.log(error.message)
     return res.status(500).json('internal server error')   
   };   
 };

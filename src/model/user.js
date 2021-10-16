@@ -1,11 +1,16 @@
 ('use strict');
 
-const { Model, Sequelize } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement:true,
+        unique:true,
+        type: DataTypes.INTEGER
+      },
       userName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -64,9 +69,9 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
 
-      image: {
-        type: DataTypes.BLOB,
-      },
+      // image: {
+      //   type: DataTypes.BLOB,
+      // },
 
       mobile: {
         type: DataTypes.STRING,

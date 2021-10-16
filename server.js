@@ -17,9 +17,9 @@ if (process.env.NODE_ENV === 'development') {
 }
 app.use('/api/v1/signup', user)
 
-app.use('/', (req, res) => {
-  res.send('Hey Instaclone!');
-});
+// app.use('/', (req, res) => {
+//   res.send('Hey Instaclone!');
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, console.log(`server is running at port ${PORT}`.success));
