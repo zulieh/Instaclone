@@ -1,11 +1,16 @@
 ('use strict');
 
-const { Model, Sequelize } = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement:true,
+        unique:true,
+        type: DataTypes.INTEGER
+      },
       userName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -45,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             args: true,
-            msg: 'Email field cannot be empty',
+            msg: 'please provide your email',
           },
         },
       },
@@ -64,9 +69,9 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
 
-      image: {
-        type: DataTypes.BLOB,
-      },
+      // image: {
+      //   type: DataTypes.BLOB,
+      // },
 
       mobile: {
         type: DataTypes.STRING,
