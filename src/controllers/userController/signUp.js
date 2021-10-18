@@ -15,7 +15,6 @@ const { userName, firstName, lastName, password,  email, mobile } = req.body;
         email,
         mobile,
     });
-    console.log(user)
     const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, { 
         expiresIn: process.env.JWT_EXPIRES
     });
