@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const user = require('./src/routers/user')
 
 const color = require('./src/util/color')
 
@@ -14,6 +15,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+app.use('/api/v1/signup', user)
+app.use('/api/v1/login', user)
 
 app.use('/', (req, res) => {
   res.send('Hey Instaclone!');

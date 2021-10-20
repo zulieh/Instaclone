@@ -6,6 +6,13 @@ module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement:true,
+        unique:true,
+        type: DataTypes.INTEGER
+      },
       userName: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -62,10 +69,6 @@ module.exports = (sequelize, DataTypes) => {
             msg: 'password must contain a minimum of 8 characters',
           },
         },
-      },
-
-      image: {
-        type: DataTypes.BLOB,
       },
 
       mobile: {
